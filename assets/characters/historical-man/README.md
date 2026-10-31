@@ -32,18 +32,23 @@ The .blend contains the action `Visemes` (frames 1-8, one timeline marker each):
 - Eyelids are four controls per lid (`lid.T.L`, `.001`, `.002`, `.003`, same for `lid.B`); move all of them to blink.
 - Rigify's generated UI script is stored in the .blend; enable the Rigify add-on and "Auto-run Python scripts" to get the control panel.
 
-## Style: cartoon pass (work in progress)
+## Outfit and style (matches `reference/style_mockup.png`)
 
-Head scaled 1.3x on the body, large eyes with catch-lights, round button nose, chubby cheeks, chunky hair and a short full beard, cleaner materials.
-The previous realistic-proportion version is in git history (commit "feat: add mouth cavity, teeth, tongue and viseme poses").
+Cartoon proportions (head 1.3x, large eyes with catch-lights, round nose, chubby cheeks, smile baked into the rest shape, short full beard).
+Outfit: long linen robe with wide sleeves, open brown vest, sash with a knot and two hanging ends, wrapped head cloth with a long loose end, sandals. No trousers, armour or jewellery.
+The earlier short-tunic realistic version is in git history.
+
+Skinning of the long robe and vest: below the hips the cloth follows the thighs, blended left/right across the centre line (no tearing between the legs).
 
 ## Known limitations (be honest about what is not finished)
 
-- **Cartoon mouth is not finished**: lips are thin, and when the jaw opens the skin around the mouth stretches unevenly and parts of the beard shell separate. Needs a dedicated rework (lip geometry, jaw/beard weights).
+- **Face is still procedural**: friendlier than before but not at the level of the mockup (no hand sculpting, thin lips, a faint seam above the upper lip). When the jaw opens wide the beard shell stretches. Needs a sculpting pass.
+- **Robe / vest are skinned, not simulated**: in a deep squat the hem turns into a stiff tube; walking cycles will need a cloth simulation or corrective shapes. Turban cloth and its tail are rigid on the head.
+- Vest and robe have no folds or UV textures (procedural noise only); the mockup's fabric detail is not reproduced.
 
 - Mouth: usable for medium shots and dialogue, but the FV shape (lower lip under the teeth) is weak, there is no gum geometry, and extreme jaw angles (>30 degrees) were not checked.
 - Face is stylised, with no blendshapes; facial weights are an automatic first pass and need weight painting for close-ups.
 - Tunic is skinned, not simulated. In extreme poses (deep squat, high leg lifts) trousers or skin can poke through the short tunic hem; two tiny skin specks show at the back in rest pose.
-- Hands: fingers deform acceptably but were only tested with open hands.
+- Hands: fingers deform acceptably but were only tested with open hands; the hands are small compared with the mockup.
 - The .blend was saved by Blender 5.2; older Blender versions cannot open it. Use the GLB/FBX or rerun `build/`.
 - Not tested: walk/run cycles, retargeting, rendering at film quality (materials are procedural, no UV textures).
