@@ -32,7 +32,14 @@ The .blend contains the action `Visemes` (frames 1-8, one timeline marker each):
 - Eyelids are four controls per lid (`lid.T.L`, `.001`, `.002`, `.003`, same for `lid.B`); move all of them to blink.
 - Rigify's generated UI script is stored in the .blend; enable the Rigify add-on and "Auto-run Python scripts" to get the control panel.
 
+## Style: cartoon pass (work in progress)
+
+Head scaled 1.3x on the body, large eyes with catch-lights, round button nose, chubby cheeks, chunky hair and a short full beard, cleaner materials.
+The previous realistic-proportion version is in git history (commit "feat: add mouth cavity, teeth, tongue and viseme poses").
+
 ## Known limitations (be honest about what is not finished)
+
+- **Cartoon mouth is not finished**: lips are thin, and when the jaw opens the skin around the mouth stretches unevenly and parts of the beard shell separate. Needs a dedicated rework (lip geometry, jaw/beard weights).
 
 - Mouth: usable for medium shots and dialogue, but the FV shape (lower lip under the teeth) is weak, there is no gum geometry, and extreme jaw angles (>30 degrees) were not checked.
 - Face is stylised, with no blendshapes; facial weights are an automatic first pass and need weight painting for close-ups.
