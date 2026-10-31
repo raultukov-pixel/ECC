@@ -17,7 +17,7 @@ No armour, jewellery or fantasy elements. Colours follow the original preview.
 
 - Rebuilt as clean continuous meshes: body skin (head, neck, torso, arms, hands with fingers, legs, feet), tunic with sleeves, trousers, sandals, waist cord, hair, beard, eyebrows, eyes.
 - Mouth for dialogue: lip slit with an inner cavity (cheeks, palate, floor), upper and lower teeth, tongue. Teeth are bone-parented to `ORG-teeth.T/B`, tongue is skinned to `DEF-tongue*`, mouth interior weights split between head and `DEF-jaw`.
-- Natural proportions (about 1.76 m, around 7.6 heads), relaxed A-pose, face features redistributed to real facial proportions, eyelids, ears.
+- Natural proportions (about 1.76 m, around 7.6 heads), relaxed A-pose, face redesigned for a friendlier look: mouth 2 cm below the nose, shorter rounder nose, eyeballs flush with the face, soft eyelids, fuller cheeks, short full beard with moustache and a ragged edge, smooth hairline.
 - Materials: procedural linen / cloth / skin (subsurface, lip tone), colours taken from the base model.
 - Rig: Rigify human metarig fitted to the body, generated as `Rig_historical_man` (IK/FK arms and legs, spine, fingers, face with eyelids, brows, lips, jaw, eye targets). Metarig kept as `Metarig_historical_man` for regeneration.
 - Skin weights: automatic weights on the body, then copied to clothing, hair, beard, eyebrows by nearest surface and smoothed (max 4 influences). Eyeballs are parented to the Rigify eye bones.
