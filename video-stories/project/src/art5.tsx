@@ -365,7 +365,8 @@ export const LadyS: React.FC<{
   drag?: number;
   hand?: React.ReactNode;
   sway?: number;
-}> = ({ x, y, s = 1, flip, t = 0, pose = {}, fill, wind = 0.3, drag = 0, hand, sway = 0 }) => {
+  bun?: boolean;
+}> = ({ x, y, s = 1, flip, t = 0, pose = {}, fill, wind = 0.3, drag = 0, hand, sway = 0, bun }) => {
   const { lean = 0, head = 0, armF = [10, 20], armB = [-6, 14] } = pose;
   const sw = Math.sin(t * 1.8) * 5 * (0.4 + wind) + sway;
   const skirt: number[][] = [[15, -178], [30, -120], [52 - sw * 0.5, -40]];
@@ -389,8 +390,14 @@ export const LadyS: React.FC<{
           <ellipse cx={2} cy={-17} rx={13} ry={17} />
           <path d="M12,-22 L19,-14 L13,-10 L14,-4 L7,-1Z" />
           <path d="M-13,-10 Q-20,-30 -8,-36 Q6,-40 13,-30 Q4,-34 -3,-28 Q-8,-18 -6,-4Z" />
-          <path d={drape(-8, -30, Math.PI * 0.56 + wind * 0.2, 118, 26, 12, t * 0.9, 301, 0.1 + wind * 0.08, drag * 0.6)} />
-          <path d={drape(-11, -22, Math.PI * 0.62 + wind * 0.25, 96, 20, 6, t * 1.0, 307, 0.12 + wind * 0.1, drag * 0.6)} />
+          {bun ? (
+            <circle cx={-13} cy={-28} r={9.5} />
+          ) : (
+            <>
+              <path d={drape(-8, -30, Math.PI * 0.56 + wind * 0.2, 118, 26, 12, t * 0.9, 301, 0.1 + wind * 0.08, drag * 0.6)} />
+              <path d={drape(-11, -22, Math.PI * 0.62 + wind * 0.25, 96, 20, 6, t * 1.0, 307, 0.12 + wind * 0.1, drag * 0.6)} />
+            </>
+          )}
         </g>
         <Limb x={9} y={-68} a={armF} l1={50} l2={46} w={11} taper={0.78}>
           <ellipse cx={0} cy={5} rx={4.6} ry={7.5} />

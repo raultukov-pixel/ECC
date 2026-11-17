@@ -12,13 +12,14 @@ Everything is drawn in code, with no stock footage and no image generators.
 | Младший (part 3 of 3) | `StarshiyYV` | shadow theatre, dawn gold |
 | Рыцарь («До первого снега») | `Knight2V` (silhouettes), `KnightV` (first, puppet version) | cinematic silhouettes, gold and blue |
 | Письмо, которое не отправили | `LetterV` | cinematic silhouettes, candlelight |
+| Две чашки | `CupsV` | cinematic silhouettes, morning kitchen |
 
-Covers: `Cover`, `CoverB`, `CoverC`, `CoverD`, `CoverE`, `CoverF` (stills, 1080x1920).
+Covers: `Cover`, `CoverB`, `CoverC`, `CoverD`, `CoverE`, `CoverF`, `CoverG` (stills, 1080x1920).
 
 ## Layout
 
 - `project/` is the Remotion project (`src/` holds the art modules, scenes and film shells).
-- `project/src/art*.tsx` are the drawing kits, one per visual generation: `art` (puppets), `art2` (light and cloth), `art4` (painted set), `art5` (cinematic silhouettes), `art6` (the room).
+- `project/src/art*.tsx` are the drawing kits, one per visual generation: `art` (puppets), `art2` (light and cloth), `art4` (painted set), `art5` (cinematic silhouettes), `art6` (the candlelit room), `art7` (the kitchen).
 - `project/src/scenes*.tsx` are the stories. `vo*.json` are the narration timelines the scenes are synced to.
 - `tools/` has Python scripts that cut the narration, build the timeline and synthesise or edit the music.
 - `asr/` has the recogniser script used to match the recording to the text, plus the resulting segment times.
@@ -77,3 +78,12 @@ ffmpeg -i vo.wav -i music.wav -filter_complex \
 ### Письмо, которое не отправили
 
 Он писал ей каждый вечер. Садился за стол, зажигал свечу и начинал: «Здравствуй». Потом вспоминал, как они расстались. Скомкивал лист. И бросал в огонь. Через месяц конверт вернулся. Нетронутый. На нём была одна строчка: «Адресат выбыл».
+
+### Две чашки
+
+Каждое утро он ставил на стол две чашки. Одну для себя. Другую для неё. Она любила чай слишком крепкий. Он ворчал, но всегда заваривал так, как она хотела. Потом она уехала. «Ненадолго», сказала она. Он не стал убирать вторую чашку. Прошла неделя. Потом месяц. Потом он перестал считать. А в один из дней он проснулся и впервые не вспомнил про вторую. Он долго сидел. Потом встал. Взял её чашку. Вымыл. И убрал в шкаф. Тихо. Не хлопнув дверцей.
+
+## Continuing
+
+Per story the scripts are `tools/gen_vo{N}.py` (timeline and narration track), `tools/gen_music*.py` and `tools/gen_sfx*.py` (music and effects), and `project/src/scenes{N}.tsx` (the shots).
+Work was done in Russian with a friendly tone. Pending ideas: re-render `StarshiyYV` (part 3) with the silver cloak that is now a real garment (`silver` prop of `Puppet2` in `art2.tsx`), horizontal versions of the trilogy, and the other sad stories (lighthouse, last waltz, broken mirror, bird in a cage, "are you still here?").
