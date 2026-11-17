@@ -17,6 +17,7 @@ import { FilmV4, TOTAL4 } from "./Film4";
 import { FilmV5, TOTAL5 } from "./Film5";
 import { FilmV6, TOTAL6 } from "./Film6";
 import { FilmV7, TOTAL7 } from "./Film7";
+import { FilmV8, TOTAL8 } from "./Film8";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -37,6 +38,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="StarshiyM" component={Film2} durationInFrames={TOTAL2} fps={FPS} width={1920} height={1080} />
     <Composition id="StarshiyMV" component={FilmV2} durationInFrames={TOTAL2} fps={FPS} width={1080} height={1920} />
     <Composition id="CupsV" component={FilmV7} durationInFrames={TOTAL7} fps={FPS} width={1080} height={1920} />
+    <Composition id="CallV" component={FilmV8} durationInFrames={TOTAL8} fps={FPS} width={1080} height={1920} />
     <Composition id="LetterV" component={FilmV6} durationInFrames={TOTAL6} fps={FPS} width={1080} height={1920} />
     <Composition id="Knight2V" component={FilmV5} durationInFrames={TOTAL5} fps={FPS} width={1080} height={1920} />
     <Composition id="KnightV" component={FilmV4} durationInFrames={TOTAL4} fps={FPS} width={1080} height={1920} />

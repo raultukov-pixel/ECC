@@ -13,13 +13,14 @@ Everything is drawn in code, with no stock footage and no image generators.
 | Рыцарь («До первого снега») | `Knight2V` (silhouettes), `KnightV` (first, puppet version) | cinematic silhouettes, gold and blue |
 | Письмо, которое не отправили | `LetterV` | cinematic silhouettes, candlelight |
 | Две чашки | `CupsV` | cinematic silhouettes, morning kitchen |
+| Перезвоню | `CallV` | cinematic silhouettes, phone screens, cold blue and warm kitchen |
 
 Covers: `Cover`, `CoverB`, `CoverC`, `CoverD`, `CoverE`, `CoverF`, `CoverG` (stills, 1080x1920).
 
 ## Layout
 
 - `project/` is the Remotion project (`src/` holds the art modules, scenes and film shells).
-- `project/src/art*.tsx` are the drawing kits, one per visual generation: `art` (puppets), `art2` (light and cloth), `art4` (painted set), `art5` (cinematic silhouettes), `art6` (the candlelit room), `art7` (the kitchen).
+- `project/src/art*.tsx` are the drawing kits, one per visual generation: `art` (puppets), `art2` (light and cloth), `art4` (painted set), `art5` (cinematic silhouettes), `art6` (the candlelit room), `art7` (the kitchen), `art8` (phone and its screens, office, meeting room, flat, bar, calendar, clock, postcard, pie).
 - `project/src/scenes*.tsx` are the stories. `vo*.json` are the narration timelines the scenes are synced to.
 - `tools/` has Python scripts that cut the narration, build the timeline and synthesise or edit the music.
 - `asr/` has the recogniser script used to match the recording to the text, plus the resulting segment times.
@@ -57,6 +58,10 @@ ffmpeg -i vo.wav -i music.wav -filter_complex \
   mix.wav
 ```
 
+## Preview stills
+
+`node tools/stills.mjs <outDir> CallV 3,12.5,40` (run it from `project/`, copy it there first) bundles once and renders half-size stills at the given seconds. It is much faster than `remotion still` for checking many shots.
+
 ## Narration texts
 
 ### Старший
@@ -82,6 +87,12 @@ ffmpeg -i vo.wav -i music.wav -filter_complex \
 ### Две чашки
 
 Каждое утро он ставил на стол две чашки. Одну для себя. Другую для неё. Она любила чай слишком крепкий. Он ворчал, но всегда заваривал так, как она хотела. Потом она уехала. «Ненадолго», сказала она. Он не стал убирать вторую чашку. Прошла неделя. Потом месяц. Потом он перестал считать. А в один из дней он проснулся и впервые не вспомнил про вторую. Он долго сидел. Потом встал. Взял её чашку. Вымыл. И убрал в шкаф. Тихо. Не хлопнув дверцей.
+
+### Перезвоню
+
+Последний звонок от мамы он сбросил. Просто был занят. «Перезвоню», — подумал он. Она звонила ему в обед. Он был на совещании. Вечером написала: «Как ты?» Он ответил одним словом: «Занят». И добавил: «Потом». Она не обиделась. Она вообще никогда не обижалась. Просто стала писать короче. «Поел?» «Не замёрз?» В субботу она позвонила снова. Он не взял. Подумал: «Завтра». Завтра были друзья. Потом отчёт. Потом дедлайн. «Потом» у него всегда было впереди. На Новый год она прислала открытку. Обычную, с ёлкой. И подписала от руки, неровным почерком: «Приезжай, сынок. Я пирог испеку». Он улыбнулся. Положил открытку на стол. «Приеду. Весной». Весной она позвонила в последний раз. Он увидел её имя на экране. И нажал «отклонить». Через два часа позвонила соседка. Он приехал в тот же вечер. В квартире было тихо. На плите стоял пирог. Остывший. Для него. Теперь он часто достаёт телефон. Находит в истории вызовов её имя и рядом красную стрелку. Пропущенный. Один. Единственный, который уже не перезвонить. Позвони маме. Прямо сейчас. Пока она ещё может взять трубку.
+
+Pipeline for `CallV`: `asr/asr_g.py` (phrases, `segs_g.json`), `tools/gen_vo8.py` (clean voice, `vo8.json`, `vo8.wav`), `tools/gen_music8.py` (synthesised piano and strings score, effects, side-chained mix, writes `mix8_raw.wav`), then `ffmpeg -i mix8_raw.wav -af loudnorm=I=-16:TP=-1.5:LRA=11 project/public/mix8.wav`. The film plays `mix8.wav` as its only audio track. The shots are in `scenes8.tsx` (`SHOTS` list of start times), the shell in `Film8.tsx`.
 
 ## Continuing
 
