@@ -15,7 +15,7 @@ Everything is drawn in code, with no stock footage and no image generators.
 | Две чашки | `CupsV` | cinematic silhouettes, morning kitchen |
 | Перезвоню | `CallV` | cinematic silhouettes, phone screens, cold blue and warm kitchen |
 
-Covers: `Cover`, `CoverB`, `CoverC`, `CoverD`, `CoverE`, `CoverF`, `CoverG` (stills, 1080x1920).
+Covers: `Cover`, `CoverB`, `CoverC`, `CoverD`, `CoverE`, `CoverF`, `CoverG`, `CoverH` (stills, 1080x1920).
 
 ## Layout
 

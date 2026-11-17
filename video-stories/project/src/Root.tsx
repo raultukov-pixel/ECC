@@ -7,6 +7,7 @@ import { CoverD } from "./CoverD";
 import { CoverE } from "./CoverE";
 import { CoverF } from "./CoverF";
 import { CoverG } from "./CoverG";
+import { CoverH } from "./CoverH";
 import { Test2 } from "./Test2";
 import { TestS, TestW } from "./Test4";
 import { T5a, T5b, T5c } from "./Test5";
@@ -28,6 +29,7 @@ export const RemotionRoot: React.FC = () => (
     <Still id="TestS" component={TestS} width={1080} height={1920} />
     <Still id="TestW" component={TestW} width={1080} height={1920} />
     <Still id="Test2" component={Test2} width={1920} height={1080} />
+    <Still id="CoverH" component={CoverH} width={1080} height={1920} />
     <Still id="CoverG" component={CoverG} width={1080} height={1920} />
     <Still id="CoverF" component={CoverF} width={1080} height={1920} />
     <Still id="CoverE" component={CoverE} width={1080} height={1920} />

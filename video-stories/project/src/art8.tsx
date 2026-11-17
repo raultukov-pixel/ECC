@@ -166,10 +166,10 @@ const Arrow: React.FC<{ x: number; y: number; col: string; dir?: "in" | "out" | 
 export const HistoryScreen: React.FC<{ T: number; focus?: number; pulse?: number }> = ({ T, focus = 0, pulse = 0 }) => {
   const rows = [
     { n: "Мама", sub: "Пропущенный", t: "14:07", col: "#ff4d42", dir: "miss" as const, k: "mom" as const },
-    { n: "Антон, работа", sub: "Исходящий", t: "13:52", col: "#8fa2b4", dir: "out" as const, k: "neighbor" as const },
+    { n: "Антон", sub: "Исходящий", t: "13:52", col: "#8fa2b4", dir: "out" as const, k: "neighbor" as const },
     { n: "Доставка", sub: "Входящий", t: "вчера", col: "#8fa2b4", dir: "in" as const, k: "neighbor" as const },
     { n: "Мама", sub: "Входящий · 4 мин", t: "пн", col: "#8fa2b4", dir: "in" as const, k: "mom" as const },
-    { n: "Антон, работа", sub: "Исходящий", t: "пн", col: "#8fa2b4", dir: "out" as const, k: "neighbor" as const },
+    { n: "Антон", sub: "Исходящий", t: "пн", col: "#8fa2b4", dir: "out" as const, k: "neighbor" as const },
     { n: "Соседка", sub: "Входящий", t: "вс", col: "#8fa2b4", dir: "in" as const, k: "neighbor" as const },
   ];
   return (
