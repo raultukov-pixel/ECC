@@ -9,6 +9,7 @@ import { CoverF } from "./CoverF";
 import { CoverG } from "./CoverG";
 import { CoverH } from "./CoverH";
 import { CoverI } from "./CoverI";
+import { CoverJ } from "./CoverJ";
 import { Test2 } from "./Test2";
 import { TestS, TestW } from "./Test4";
 import { T5a, T5b, T5c } from "./Test5";
@@ -21,6 +22,7 @@ import { FilmV6, TOTAL6 } from "./Film6";
 import { FilmV7, TOTAL7 } from "./Film7";
 import { FilmV8, TOTAL8 } from "./Film8";
 import { FilmV9, TOTAL9 } from "./Film9";
+import { FilmV10, TOTAL10 } from "./Film10";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -31,6 +33,7 @@ export const RemotionRoot: React.FC = () => (
     <Still id="TestS" component={TestS} width={1080} height={1920} />
     <Still id="TestW" component={TestW} width={1080} height={1920} />
     <Still id="Test2" component={Test2} width={1920} height={1080} />
+    <Still id="CoverJ" component={CoverJ} width={1080} height={1920} />
     <Still id="CoverI" component={CoverI} width={1080} height={1920} />
     <Still id="CoverH" component={CoverH} width={1080} height={1920} />
     <Still id="CoverG" component={CoverG} width={1080} height={1920} />
@@ -43,6 +46,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="StarshiyM" component={Film2} durationInFrames={TOTAL2} fps={FPS} width={1920} height={1080} />
     <Composition id="StarshiyMV" component={FilmV2} durationInFrames={TOTAL2} fps={FPS} width={1080} height={1920} />
     <Composition id="CupsV" component={FilmV7} durationInFrames={TOTAL7} fps={FPS} width={1080} height={1920} />
+    <Composition id="HouseV" component={FilmV10} durationInFrames={TOTAL10} fps={FPS} width={1080} height={1920} />
     <Composition id="DoorV" component={FilmV9} durationInFrames={TOTAL9} fps={FPS} width={1080} height={1920} />
     <Composition id="CallV" component={FilmV8} durationInFrames={TOTAL8} fps={FPS} width={1080} height={1920} />
     <Composition id="LetterV" component={FilmV6} durationInFrames={TOTAL6} fps={FPS} width={1080} height={1920} />

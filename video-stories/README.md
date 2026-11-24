@@ -14,14 +14,15 @@ Everything is drawn in code, with no stock footage and no image generators.
 | Письмо, которое не отправили | `LetterV` | cinematic silhouettes, candlelight |
 | Две чашки | `CupsV` | cinematic silhouettes, morning kitchen |
 | Перезвоню | `CallV` | cinematic silhouettes, phone screens, cold blue and warm kitchen |
+| Дом, который ждал | `HouseV` | cinematic silhouettes, a haunted-looking house that turns out to be a home; no music, only voice and night sounds |
 | Дверь | `DoorV` | cinematic silhouettes, dusk street, a lit doorway; no music, only voice and street sounds |
 
-Covers: `Cover`, `CoverB`, `CoverC`, `CoverD`, `CoverE`, `CoverF`, `CoverG`, `CoverH`, `CoverI` (stills, 1080x1920).
+Covers: `Cover`, `CoverB`, `CoverC`, `CoverD`, `CoverE`, `CoverF`, `CoverG`, `CoverH`, `CoverI`, `CoverJ` (stills, 1080x1920).
 
 ## Layout
 
 - `project/` is the Remotion project (`src/` holds the art modules, scenes and film shells).
-- `project/src/art*.tsx` are the drawing kits, one per visual generation: `art` (puppets), `art2` (light and cloth), `art4` (painted set), `art5` (cinematic silhouettes), `art6` (the candlelit room), `art7` (the kitchen), `art9` (the dusk street with a mosque, a door that is open or only looks shut, bench, hands), `art8` (phone and its screens, office, meeting room, flat, bar, calendar, clock, postcard, pie).
+- `project/src/art*.tsx` are the drawing kits, one per visual generation: `art` (puppets), `art2` (light and cloth), `art4` (painted set), `art5` (cinematic silhouettes), `art6` (the candlelit room), `art7` (the kitchen), `art10` (the house that is haunted at `warm=0` and a home at `warm=1`, fence, house frame, window being set, lamp), `art9` (the dusk street with a mosque, a door that is open or only looks shut, bench, hands), `art8` (phone and its screens, office, meeting room, flat, bar, calendar, clock, postcard, pie).
 - `project/src/scenes*.tsx` are the stories. `vo*.json` are the narration timelines the scenes are synced to.
 - `tools/` has Python scripts that cut the narration, build the timeline and synthesise or edit the music.
 - `asr/` has the recogniser script used to match the recording to the text, plus the resulting segment times.
@@ -100,6 +101,12 @@ Pipeline for `CallV`: `asr/asr_g.py` (phrases, `segs_g.json`), `tools/gen_vo8.py
 Он проходил мимо этой двери каждый вечер. Уже много лет. Замедлял шаг. Смотрел на свет в окнах. И шёл дальше. Он говорил себе: «Мне туда нельзя. Не после всего, что я наделал». Он помнил каждый свой грех. И думал, что для таких, как он, эта дверь давно закрыта. Зимой он проходил быстрее. Летом — медленнее. А дверь все эти годы была открыта. Каждый вечер. Для всех. Свет в окнах горел и для него тоже. Однажды он остановился. Долго стоял на пороге. Руки дрожали. И кто-то рядом молча подвинулся, освобождая ему место. Ничего не спросил. Не упрекнул. Он опустил голову. И впервые за много лет не стал уходить. Сказано: «Не отчаивайтесь в милости Аллаха». Дверь никогда не была закрыта. Закрытой её считал только он.
 
 Pipeline for `DoorV`: `asr/asr_h.py` (`segs_h.json`), `tools/gen_vo9.py` (voice, `vo9.json`, `vo9.wav`), `tools/gen_audio9.py` (sound only, no melody; writes `mix9_raw.wav`), then `ffmpeg -i mix9_raw.wav -af loudnorm=I=-16:TP=-1.5:LRA=11 project/public/mix9.wav`. Shots are in `scenes9.tsx` (`SHOTS`), the set in `art9.tsx`. The Quran quote (39:53) should be checked against a trusted translation before publishing.
+
+### Дом, который ждал
+
+Все дети в нашем районе обходили этот дом стороной. Говорили, что он живой. Что смотрит из окон. Что по ночам в нём кто-то плачет. Хозяин, старик, никого не пускал к забору. Кричал на каждого, кто подходил близко. Мы думали, что он злой. Никто не знал, что этот дом он построил сам. Своими руками. Каждое окно он ставил так, как она любила, чтобы утром в кухню падало солнце. Она так и не успела в нём пожить. Он остался. Не потому что не мог уйти. А потому что в этом доме всё ещё стояла её чашка. Висел её платок. Каждый вечер он зажигал свет в её любимом окне. Мы думали, что дом смотрит на нас. А он просто ждал её. Теперь я иногда прохожу мимо. Останавливаюсь у забора. И тихо говорю: «Простите нас». Злым был не дом. Злыми были мы.
+
+Pipeline for `HouseV`: `asr/asr_i.py` (`segs_i.json`), `tools/gen_vo10.py` (`vo10.json`, `vo10.wav`), `tools/gen_audio10.py` (sound only; writes `mix10_raw.wav`), then `ffmpeg -i mix10_raw.wav -af loudnorm=I=-16:TP=-1.5:LRA=11 project/public/mix10.wav`. Shots are in `scenes10.tsx` (`SHOTS`). The idea is an original story with the emotional core of a well-known animated film; it does not reuse its names, scenes or characters.
 
 ## Continuing
 
